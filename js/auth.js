@@ -18,8 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
             
+            // DEMO BYPASS: Đăng nhập ngay không cần API
+            if (email === "demo" || email === "demo@tracepro.vn") {
+                localStorage.setItem('tp_auth_token', 'demo-token-12345');
+                localStorage.setItem('tp_user', JSON.stringify({ name: "Demo User", company: "TracePro", tenant_id: "TENANT-DEMO" }));
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            // Auto-detect environment
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const API_URL = isLocal ? 'http://localhost:3000/api' : 'https://tracepro-backend-api.onrender.com/api';
+
             // Call real API
-            fetch('http://localhost:3000/api/auth/login', {
+            fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -37,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => {
                 console.error(err);
-                alert('Không thể kết nối tới Server API (localhost:3000)');
+                alert('Không thể kết nối tới Server API (' + API_URL + '). Vui lòng kiểm tra Render hoặc chạy Local.');
                 resetBtn();
             });
 
