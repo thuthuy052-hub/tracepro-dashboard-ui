@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập | TracePro VN Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="auth-page">
+    <div class="auth-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <main class="auth-container">
+        <div class="auth-card glass">
+            <div class="auth-header">
+                <div class="logo">
+                    <span class="logo-icon">◉</span>
+                    <span class="logo-text">TracePro<span class="logo-accent">VN</span></span>
+                </div>
+                <h1>Chào mừng trở lại</h1>
+                <p>Nền tảng tự động hóa Truy xuất nguồn gốc</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email công việc</label>
+                    <input type="email" id="email" placeholder="admin@congty.vn" value="admin@tracepro.vn" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="••••••••" value="password123" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" checked> Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-pass">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn-primary auth-submit">
+                    Đăng nhập vào Workspace
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Chưa có tài khoản? <a href="#" id="toggleRegister">Đăng ký doanh nghiệp</a></p>
+            </div>
+        </div>
+        
+        <div class="auth-info-text">
+            <p>© 2026 TracePro VN. Protected by AES-256 Encryption.</p>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
